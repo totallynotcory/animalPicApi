@@ -1,0 +1,27 @@
+{
+  "name": "petfinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "dev": "nodemon ./src/app.ts",
+    "test": "ts-node node_modules/jasmine/bin/jasmine"
+  },
+  "author": "Cory T Potwin",
+  "license": "ISC",
+  "dependencies": {
+    "@types/got": "^9.6.12",
+    "got": "^11.8.2",
+    "koa": "^2.13.4"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.10.1",
+    "@types/koa": "^2.13.4",
+    "jasmine": "^3.10.0",
+    "nock": "^13.1.4",
+    "nodemon": "^2.0.14",
+    "supertest": "^6.1.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
