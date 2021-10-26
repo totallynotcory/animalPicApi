@@ -1,4 +1,3 @@
-import 'jasmine';
 const nock = require('nock');
 import * as subject from '../../src/clients/cataas'
 

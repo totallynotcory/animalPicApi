@@ -1,4 +1,4 @@
-import got from "got/dist/source"
+import got from "got"
 const cataasUrl = 'https://cataas.com/'
 
 type reqFormat = 'img' | 'gif'

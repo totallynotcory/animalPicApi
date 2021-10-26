@@ -20,7 +20,7 @@ app.use(async (ctx, next) => {
 
 // response
 app.use(async ctx => {
-  const recognizedPets = ['cat']
+  const recognizedPets = ['cat', 'dog']
   const requestedPet: string = typeof ctx.query.pet === 'string' ? ctx.query.pet : ''
 
   //TODO: Currently, there's logic in both app.ts and the petfactory to deal with unrecognized pets. 
