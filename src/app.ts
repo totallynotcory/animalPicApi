@@ -1,6 +1,8 @@
 import * as Koa from 'koa';
-import { getPet } from './factories/petfactory'
+import * as Router from 'koa-router';
+import { getPet } from './factories/petfactory';
 const app = new Koa();
+const router = new Router();
 
 // logger
 app.use(async (ctx, next) => {
@@ -16,17 +18,19 @@ app.use(async (ctx, next) => {
   ctx.set('X-Response-Time', `${ms}ms`);
 });
 
+router.get('/', (ctx) => {
+  ctx.body = "Alive"
+})
 
-
-// response
-app.use(async ctx => {
-  const requestedPet: string = typeof ctx.query.pet === 'string' ? ctx.query.pet : ''
+router.get('/pet/:type', async (ctx, next) => {
+  const requestedPet: string = typeof ctx.params.type === 'string' ? ctx.params.type : ''
   ctx.response.type = 'image/jpeg';
   ctx.body = await getPet(requestedPet);
-});
+})
+
+app.use(router.routes());
 
 // errors
-
 app.on('error', (err, ctx) => {
   console.error('Server Error: ', err, ctx)
 })
