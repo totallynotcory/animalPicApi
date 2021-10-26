@@ -1,13 +1,13 @@
 import * as randomfox from '../../src/clients/randomfox'
-import * as subject from "../../src/services/foxservice"
+import * as subject from '../../src/services/foxservice'
 
 describe('catservice', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     spyOn(randomfox, 'getFox')
-    subject.findFox()
-  });
-  
+    await subject.findFox()
+  })
+
   it('should be true', () => {
-    expect(randomfox.getFox).toHaveBeenCalled();
-  });
-});
+    expect(randomfox.getFox).toHaveBeenCalled()
+  })
+})

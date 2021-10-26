@@ -1,13 +1,13 @@
 import * as cataas from '../../src/clients/cataas'
-import * as subject from "../../src/services/catservice"
+import * as subject from '../../src/services/catservice'
 
 describe('catservice', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     spyOn(cataas, 'getCat')
-    subject.findCat()
-  });
-  
+    await subject.findCat()
+  })
+
   it('should be true', () => {
-    expect(cataas.getCat).toHaveBeenCalled();
-  });
-});
+    expect(cataas.getCat).toHaveBeenCalled()
+  })
+})

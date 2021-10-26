@@ -1,16 +1,17 @@
-import { findCat } from "../services/catservice"
-import { findDog } from "../services/dogservice"
-import { findFox } from "../services/foxservice"
+import { findCat } from '../services/catservice'
+import { findDog } from '../services/dogservice'
+import { findFox } from '../services/foxservice'
+import Request from 'got/dist/source/core'
 
-export const getPet = type => {
+export const getPet = async (type): Promise<Request> => {
   switch (type) {
-    case "cat":
-      return findCat();  
-    case "dog":
-      return findDog();  
-    case "fox":
-      return findFox();  
+    case 'cat':
+      return await findCat()
+    case 'dog':
+      return await findDog()
+    case 'fox':
+      return await findFox()
     default:
-      return findCat("img", "cute", "whatzat")
+      return await findCat('img', 'cute', 'whatzat')
   }
 }

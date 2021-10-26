@@ -1,13 +1,13 @@
 import * as dogceo from '../../src/clients/dogceo'
-import * as subject from "../../src/services/dogservice"
+import * as subject from '../../src/services/dogservice'
 
 describe('catservice', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     spyOn(dogceo, 'getDog')
-    subject.findDog()
-  });
-  
+    await subject.findDog()
+  })
+
   it('should be true', () => {
-    expect(dogceo.getDog).toHaveBeenCalled();
-  });
-});
+    expect(dogceo.getDog).toHaveBeenCalled()
+  })
+})

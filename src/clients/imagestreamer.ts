@@ -1,7 +1,8 @@
-import got from "got"
+import got from 'got'
+import Request from 'got/dist/source/core'
 
-export const getImage = async (url, responseObjKeyName) => {
+export const getImage = async (url, responseObjKeyName): Promise<Request> => {
   const response = await got(url).json()
-  //@ts-ignore
-  return await got.stream(response[responseObjKeyName])
+  // @ts-expect-error
+  return got.stream(response[responseObjKeyName])
 }

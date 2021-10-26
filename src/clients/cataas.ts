@@ -1,23 +1,22 @@
-import got from "got"
+import got from 'got'
 const cataasUrl = 'https://cataas.com/'
 
 type reqFormat = 'img' | 'gif'
 
-export const getCat = async (format: reqFormat = "img", tag: string = '', text: string = '') => {
+export const getCat = async (format: reqFormat = 'img', tag: string = '', text: string = ''): Promise<Request> => {
   let path = '/cat'
-  if(format === 'gif') {
-    path += `/gif`
+  if (format === 'gif') {
+    path += '/gif'
   } else {
-    if(tag) {
+    if (tag !== '' && tag !== null) {
       path += `/${tag}`
     }
-    if(text) {
+    if (text !== '' && text !== null) {
       path += `/says/${text}`
     }
   }
-  
 
-  let url = new URL(path, cataasUrl)  
+  const url = new URL(path, cataasUrl)
 
-  return got.stream(url.toString());
+  return got.stream(url.toString())
 }

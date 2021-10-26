@@ -1,6 +1,8 @@
-const url = "https://randomfox.ca/floof/"
-import { getImage } from "./imagestreamer"
+import { getImage } from './imagestreamer'
+import Request from 'got/dist/source/core'
 
-export const getFox = async () => {
-  return await getImage(url, "image")
+const url = 'https://randomfox.ca/floof/'
+
+export const getFox = async (): Promise<Request> => {
+  return await getImage(url, 'image')
 }
