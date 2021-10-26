@@ -20,17 +20,9 @@ app.use(async (ctx, next) => {
 
 // response
 app.use(async ctx => {
-  const recognizedPets = ['cat', 'dog']
   const requestedPet: string = typeof ctx.query.pet === 'string' ? ctx.query.pet : ''
-
-  //TODO: Currently, there's logic in both app.ts and the petfactory to deal with unrecognized pets. 
-  //  Have to decide if I really want to throw a 400 when I could just show another cat?  Answer seems obvious...
-  if(recognizedPets.includes(requestedPet)) {
-    ctx.response.type = 'image/jpeg';
-    ctx.body = await getPet(requestedPet);
-  } else {
-    ctx.throw(400, 'Bad Request: Pet not found')
-  }
+  ctx.response.type = 'image/jpeg';
+  ctx.body = await getPet(requestedPet);
 });
 
 // errors
