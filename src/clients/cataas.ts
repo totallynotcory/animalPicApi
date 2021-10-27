@@ -3,7 +3,7 @@ const cataasUrl = 'https://cataas.com/'
 
 type reqFormat = 'img' | 'gif'
 
-export const getCat = async (format: reqFormat = 'img', tag: string = '', text: string = ''): Promise<Request> => {
+export const getCat = async (format: reqFormat = 'img', tag: string = '', text: string = ''): Promise<any> => {
   let path = '/cat'
   if (format === 'gif') {
     path += '/gif'

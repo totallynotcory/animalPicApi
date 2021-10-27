@@ -5,8 +5,8 @@
   "main": "app.ts",
   "scripts": {
     "dev": "nodemon ./src/app.ts",
-    "test": "ts-standard && ts-node node_modules/jasmine/bin/jasmine",
-    "lint": "ts-standard",
+    "test": "npm run lint && ts-node node_modules/jasmine/bin/jasmine",
+    "lint": "ts-standard --project ./tsconfig.json",
     "lint:fix": "ts-standard --fix"
   },
   "author": "Cory T Potwin",
@@ -27,5 +27,8 @@
     "ts-node": "^10.4.0",
     "ts-standard": "^10.0.0",
     "typescript": "^4.4.4"
+  },
+  "ts-standard": {
+    "project": "./tsconfig.json"
   }
 }

@@ -12,7 +12,7 @@ describe('dog ceo service', () => {
 
       it('calls the service', async () => {
         const actual = await subject.getDog()
-        expect(actual).not.toBe(null)
+        expect(actual).not.toBeNull()
       })
     })
   })

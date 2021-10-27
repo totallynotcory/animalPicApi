@@ -12,7 +12,7 @@ describe('random fox service', () => {
 
       it('calls the service', async () => {
         const actual = await subject.getFox()
-        expect(actual).not.toBe(null)
+        expect(actual).not.toBeNull()
       })
     })
   })
