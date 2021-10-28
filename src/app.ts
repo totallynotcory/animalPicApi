@@ -1,22 +1,11 @@
 import * as Koa from 'koa'
 import * as Router from 'koa-router'
+import * as logger from 'koa-logger'
 import { getPet } from './factories/petfactory'
 const app = new Koa()
 const router = new Router()
 
-// logger
-app.use(async (ctx, next) => {
-  await next()
-  const rt = ctx.response.get('X-Response-Time')
-  console.log(`${ctx.method} ${ctx.url} - ${rt}`)
-})
-
-app.use(async (ctx, next) => {
-  const start = Date.now()
-  await next()
-  const ms = Date.now() - start
-  ctx.set('X-Response-Time', `${ms}ms`)
-})
+app.use(logger());
 
 router.get('/', (ctx) => {
   ctx.body = 'Alive'
