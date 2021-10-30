@@ -1,0 +1,5 @@
+export const catApiUrl = 'https://thatcopy.pw/catapi/rest/'
+export const catAasUrl = 'https://cataas.com/'
+export const dogCeoUrl = 'https://dog.ceo/api/breeds/image/random/'
+export const randomDukUrl = 'https://random-d.uk/api/v2/quack/'
+export const randomFoxUrl = 'https://randomfox.ca/floof/'

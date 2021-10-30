@@ -1,5 +1,6 @@
 import * as subject from '../../src/clients/cataas'
 import * as nock from 'nock'
+import { catAasUrl } from '../../src/clients/urls'
 
 // TODO: properly test stream returns
 //  Right now, the bulk of these tests are in ensuring the nock doesn't fail.  It'd be good to add real tests for the return
@@ -7,7 +8,7 @@ describe('cat as a service', () => {
   describe('getCat', () => {
     describe('called with no input', () => {
       beforeEach(() => {
-        nock('https://cataas.com').get('/cat').reply(200)
+        nock(catAasUrl).get('/cat').reply(200)
       })
 
       it('calls the service', async () => {
@@ -18,7 +19,7 @@ describe('cat as a service', () => {
 
     describe('request made with a tag and text', () => {
       beforeEach(() => {
-        nock('https://cataas.com').get('/cat/cute/says/love').reply(200)
+        nock(catAasUrl).get('/cat/cute/says/love').reply(200)
       })
 
       it('calls the service for an img with tag and text included', async () => {
@@ -29,7 +30,7 @@ describe('cat as a service', () => {
 
     describe('request made for a gif', () => {
       beforeEach(() => {
-        nock('https://cataas.com').get('/cat/gif').reply(200)
+        nock(catAasUrl).get('/cat/gif').reply(200)
       })
 
       it('calls the service for a gif, ignoring the tag and text', async () => {

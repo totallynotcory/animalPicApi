@@ -1,5 +1,5 @@
 import got from 'got'
-const cataasUrl = 'https://cataas.com/'
+import { catAasUrl } from './urls'
 
 type reqFormat = 'img' | 'gif'
 
@@ -16,7 +16,7 @@ export const getCat = async (format: reqFormat = 'img', tag: string = '', text: 
     }
   }
 
-  const url = new URL(path, cataasUrl)
+  const url = new URL(path, catAasUrl)
 
   return got.stream(url.toString())
 }

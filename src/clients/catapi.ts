@@ -1,7 +1,7 @@
 import { getImage } from './imagestreamer'
 import Request from 'got/dist/source/core'
-const url = "https://thatcopy.pw/catapi/rest/"
+import { catApiUrl } from './urls'
 
 export const getCat = async (): Promise<Request> => {
-  return await getImage(url, 'url')
+  return await getImage(catApiUrl, 'url')
 }

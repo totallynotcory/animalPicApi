@@ -1,12 +1,12 @@
 import * as subject from '../../src/clients/randomfox'
 import * as nock from 'nock'
-const url = 'https://randomfox.ca/floof/'
+import { randomFoxUrl } from '../../src/clients/urls'
 
 describe('random fox client', () => {
   describe('getFox', () => {
     describe('called with no input', () => {
       beforeEach(() => {
-        nock(url).get('/').reply(200, { image: 'https://realurl.com' })
+        nock(randomFoxUrl).get('/').reply(200, { image: 'https://realurl.com' })
         nock('https://realurl.com').get('/').reply(200)
       })
 

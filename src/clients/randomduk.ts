@@ -1,7 +1,7 @@
 import { getImage } from './imagestreamer'
 import Request from 'got/dist/source/core'
-const url = 'https://random-d.uk/api/v2/quack/'
+import { randomDukUrl } from './urls'
 
 export const getDuck = async (): Promise<Request> => {
-  return await getImage(url, 'url')
+  return await getImage(randomDukUrl, 'url')
 }
