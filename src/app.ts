@@ -1,11 +1,13 @@
 import * as Koa from 'koa'
 import * as Router from 'koa-router'
 import * as logger from 'koa-logger'
+import * as helmet from 'koa-helmet'
 import { getPet } from './factories/petfactory'
 const app = new Koa()
 const router = new Router()
 
-app.use(logger());
+app.use(helmet())
+app.use(logger())
 
 router.get('/', (ctx) => {
   ctx.body = 'Alive'
