@@ -2,7 +2,7 @@ import * as subject from '../../src/clients/randomfox'
 import * as nock from 'nock'
 const url = 'https://randomfox.ca/floof/'
 
-describe('random fox service', () => {
+describe('random fox client', () => {
   describe('getFox', () => {
     describe('called with no input', () => {
       beforeEach(() => {
@@ -10,7 +10,7 @@ describe('random fox service', () => {
         nock('https://realurl.com').get('/').reply(200)
       })
 
-      it('calls the service', async () => {
+      it('calls the client', async () => {
         const actual = await subject.getFox()
         expect(actual).not.toBeNull()
       })
